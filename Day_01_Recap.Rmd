@@ -1,0 +1,79 @@
+---
+title: "Day_1_Recap"
+author: "Analise Hofmann"
+date: "January 26, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Intro to R Studio
+- demonstrated the different parts of R Studio: command line, Environment (where to see your variables, History - the record of code run on the command line, Git - how to commit and push changes and work, Files - use to look at files present, Plots - where graphs will pop up, Packagse - where you can find the packages you have installed (checked ones loaded and 'active'), Help - use to search help documentation on commands, Viewer - use to look at knitHtml files (from .Rmd files) )
+- made a new R Project with a github repository
+
+## R Markdown Review of tempate when you open a new .Rmd file
+**We also looked at a Markdown [cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)**
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Other Misc Resources we discussed
+
+### Useful packages to install and start exploring
+1. ReadR
+1. TidyR
+1. dplyR
+1. ggplot2
+
+### Useful programming content to review mechanisms of
+1. for loops
+1. while loops
+1. if statements
+1. how to write a function
+
+### Useful function
+As promised, I am sharing the create_empty_table function I found on stackoverflow
+*I also documented the function with useful comments as an example of good code documentation*
+```{r, create and empty table with NAs}
+
+create_empty_table <- function(num_rows, num_cols) {
+  # This function creates an empty table filled with NA according to the dimensions you specfy
+  # num_rows - takes a positive integer as the argument
+  # num_cols - takes a positive integer as the argument
+    frame <- data.frame(matrix(NA, nrow = num_rows, ncol = num_cols))
+    return(frame)
+}
+
+```
+
+## Upcoming programming workshop that may be of interest
+[SFU & UBC Library Research Commons: Research Bazaar 2017](http://guides.library.ubc.ca/library_research_commons/resbaz2017)
+
+## Next Week
+### To prepare
+1. review this document and any skills you want to brush up on or get help with
+1. make a github account, install github desktop (practice using this if you have a chance)
+
+### Further Suggestions
+1. think about something that you do that could benefit from some R functions, and how you could talke it one step at a time
+
+### Agenda for day 2 - Thursday Feb 3rd, 8am LSI
+1. get set-up on a private github repository to work on Connie's code
+.. *we will be using github as a tool to collaborate on this project together (I will walk through how to do this, but some review of online how to's of this would be useful)*
+1. work on conceptualizing Connie's workflow and making some of her code into functions
