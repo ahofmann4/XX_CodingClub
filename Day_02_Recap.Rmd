@@ -1,0 +1,22 @@
+# Day 2 Recap: Feb 2, 2017: Working through Connie's workflow
+- request to be added to the private repository with Connie's data and working code to see what we did and contribute in the future
+
+We worked on Connie's data, cleaned up the code she had to make it more legible (fixed syntax and spacing), 
+commented so that we know what each function and line of code is doing. We then worked on making the data into a longform data table
+with the 'melt' function from 'reshape2' package (alternative would be using 'gather' in 'tidyR' package). We then worked on graphing the data. 
+Work still needs to be done to make the graphing code into a function, and to have only the means and sd on the graph.
+
+
+# Plans for next week Feb 9, 2017
+## To do before coming
+- make a github account so we can collaborate on github
+- review for loops
+- review if statements and boolean logic 
+- practice using .Rmd and [markdown](http://www.statmethods.net/management/operators.html)
+
+## Plans for next week
+- start using [GitHub](github.com), push & pull & commit changes to online repositories
+- practice using for loops ([1](https://www.google.ca/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&cad=rja&uact=8&ved=0ahUKEwj1q4-thfLRAhVJzGMKHd0bBRwQFggkMAI&url=https%3A%2F%2Fwww.r-bloggers.com%2Fhow-to-write-the-first-for-loop-in-r%2F&usg=AFQjCNHFz8ui1KnyCKC0gen4OhCZFdUNaA&sig2=_6U7fhgMqqcpPkAJo0pI4A), [2](https://www.datacamp.com/community/tutorials/tutorial-on-loops-in-r#gs.J8QXNd4)) 
+and nested for loops
+- if time permits, work on [if statements](https://www.programiz.com/r-programming/if-else-statement) and [logical operators](http://www.statmethods.net/management/operators.html) 
+- continue
