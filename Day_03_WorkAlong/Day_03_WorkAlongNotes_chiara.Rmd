@@ -19,7 +19,53 @@ Today we will work through using GitHub online and on the desktop, practice pull
 2. Integrating a GitHub repository with RStudio Project (pull this project to your computer)
 3. Work in the repository and push & pull changes to the repository (make your own Notes_Name.Rmd file in Day_03 folder).
 
-## What is an if statement?
+```{r}
+getwd()
+
+setwd("Day_03_WorkAlong") #./ in setting wd that the current working directing is talking in relation to the folder you are in. setwd("..") which brings you to to the folder up . 
+
+setwd("..")
+getwd()
+TestData <- read.csv("TestData.csv")
+setwd("./")
+setwd("Day_03_WorkAlong")
+
+```
+
+```{r}
+if ( 5 < 3 | 5 > 2){
+  print("this is true")
+} else {
+  print("not true")
+}
+
+
+if ( 7 > 8){
+  print ("first one is true")
+  
+} else if (7 > 8) {
+  print ("second is true")
+  
+} else {
+  print ("nothing is true")
+}
+
+if (6<7){
+  if (6>5){
+    
+  }
+}
+
+#this is the same as 
+
+if (6>7 & 6>8){
+  
+}
+```
+
+
+
+## What is an if statement? 
 ** 15 mins **
 - review boolean logical statements
 - write if statements, and if else statements
