@@ -17,9 +17,18 @@ Today we will work through using GitHub online and on the desktop, practice pull
 2. Integrating a GitHub repository with RStudio Project (pull this project to your computer)
 3. Work in the repository and push & pull changes to the repository (make your own Notes_Name.Rmd file in Day_03 folder).
 
-## What is an if statement?
+```{r, Read in file}
+#ask everyone to read in the file using read.csv, do any problems come up?
+#review checking the local directory, maybe you have to call the file differently?
+#review setwd() and get() commands, '.' vs '..'
+
+TestData <- read.csv(file = "./Day_03_WorkAlong/TestData.csv")
+
+```
+
+## What is an [if statement](https://www.programiz.com/r-programming/if-else-statement)?
 ** 15 mins **
-- review boolean logical statements
+- review boolean [logical statements](http://www.statmethods.net/management/operators.html)
 - write if statements, and if else statements
 
 ```{r}
@@ -27,12 +36,12 @@ Today we will work through using GitHub online and on the desktop, practice pull
 
 ```
 
-## What is a for loop?
+## What is a [for loop](http://paleocave.sciencesortof.com/2013/03/writing-a-for-loop-in-r/)?
 ** 20 mins **
 - review a foor loop, and examples where you would use them
 - nested for loops
 - write a for loop to transfor a table
-- can this be done easier with a specific function in R? dplyR? 
+- can this be done easier with a specific function in R? apply? dplyR? 
 
 ```{r}
 
