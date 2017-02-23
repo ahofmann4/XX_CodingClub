@@ -8,9 +8,14 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
+
+
 ## Intro to using [GitHub](www.github.com/ahofmann4/XX_CodingClub) 
 **20-30 mins**
+
+
 
 Today we will work through using GitHub online and on the desktop, practice pulling and pushing changes to our work. We will also discuss the pros of using GitHub for version control of coding progress, and how this can promote and faciliate collaborations on projects of all kinds (like this coding club! :) ). 
 
@@ -18,6 +23,20 @@ Today we will work through using GitHub online and on the desktop, practice pull
 2. Integrating a GitHub repository with RStudio Project (pull this project to your computer)
 3. Work in the repository and push & pull changes to the repository (make your own Notes_Name.Rmd file in Day_03 folder).
 
+
+```{r}
+
+testdata <-read.csv("TestData.csv")
+#find working directory 
+getwd()
+
+#set working directory, "two dots" send you back a folder
+#setwd("..")
+#getwd()
+#setwd("../..")
+#setwd("./XX_CodingClub/Day_03_WorkAlong")
+#getwd()
+```
 ## What is an if statement?
 ** 15 mins **
 - review boolean logical statements
