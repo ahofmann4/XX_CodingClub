@@ -1,0 +1,11 @@
+# Recap of Day 3 Feb 16
+
+We covered GitHub online, and starting new projects on our computers with existing repositories on GitHub. We practiced committing changes, pushing, and pulling changes through RStudio. 
+- Look at Chiara and Connie's files they pushed to GitHub to see what we did on if, if else, and if else if statements. 
+- we also practiced changing working directories, and reading in a data file. (Reviewed '.' (refers to current directory) & '..' (refers to one directory up from the current) and their use in changing working directories and how they are very universal between languages)
+
+### Next time Feb 23, 8am
+- come with a GitHub account
+- review if statements (see .rmd files from day 3 folder for useful links for the material we covered)
+- We will cover while loops, and for loops and start working with the test data file to analyze the data 
+- **Bonus** if we have time: create functions for our commands
