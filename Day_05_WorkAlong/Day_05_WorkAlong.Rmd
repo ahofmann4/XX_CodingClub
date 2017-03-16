@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Review
+## Review 1
 
 ```{r}
 #read in the table from Day 03
@@ -21,6 +21,7 @@ day3table <-read.csv(file = "./Day_03_WorkAlong/TestData.csv")
 ```
 
 
+## Review 2
 
 ```{r}
 #use the table you read in above and write a for loop to modify it
@@ -41,7 +42,7 @@ for(i in 1:3){
 }
 ```
 
-#Connie's challenge to the group! 
+## Connie's challenge to the group! 
 Make a new column in day3table called "Sum" and sum the first three columns in each row, and put the sum into the new column
 ```{r}
 day3table <- day3table_original #setting day3table back to original values
@@ -68,7 +69,8 @@ for (i in 1:nrow(day3table)){
 
 ```
 
-
+## Review 3
+Challenge for homework before next meeting.
 ```{r}
 #use the table above and write a while loop to modify it
 

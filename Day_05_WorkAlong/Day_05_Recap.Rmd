@@ -1,0 +1,30 @@
+---
+title: "Day_05_Recap"
+author: "Analise Hofmann"
+date: "March 16, 2017"
+output: html_document
+---
+
+# We have moved our sessions to 4:30 pm on Tuesdays same place. 
+
+## What we did on Day 05 
+##### Reviewed previous lessons 
+  - we reviewed changing directories with '.' , '..' , getwd(), setwd()
+  - we read in a data table 'TestData.csv' from the [Day_03_WorkAlong](https://github.com/ahofmann4/XX_CodingClub/tree/master/Day_03_WorkAlong) Folder using read.csv
+  - we practiced for loops, nested for loops
+
+## Prep for next session
+
+- review R Markdown <http://rmarkdown.rstudio.com> 
+- Have github working and connected to RStudio so you can pull this repository to your local harddrive and make modifications and collaborate with us (do your best with this!).
+- review for loops
+- try to write a while loop in the [Day_05_WorkAlong.Rmd](https://github.com/ahofmann4/XX_CodingClub/blob/master/Day_05_WorkAlong/Day_05_WorkAlong.Rmd) file
+- review functions (we will be converting our for loops from day 05 to a function at the start of the lesson)
+
+## Next session
+- make previous for loop code into functions
+- review while loops
+- if time, start the [dplyR lesson] (https://github.com/JoeyBernhardt/RStudyGroup-dplyr-lesson/blob/master/dplyr-lesson.Rmd)
+
+
+
