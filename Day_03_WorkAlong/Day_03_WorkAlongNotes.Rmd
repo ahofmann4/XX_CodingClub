@@ -23,7 +23,8 @@ Today we will work through using GitHub online and on the desktop, practice pull
 #review setwd() and get() commands, '.' vs '..'
 
 TestData <- read.csv(file = "./Day_03_WorkAlong/TestData.csv")
-
+getwd()
+setwd()
 ```
 
 ## What is an [if statement](https://www.programiz.com/r-programming/if-else-statement)?
@@ -32,6 +33,35 @@ TestData <- read.csv(file = "./Day_03_WorkAlong/TestData.csv")
 - write if statements, and if else statements
 
 ```{r}
+if ( 7 < 6 | 5 > 2){
+  print("This TRUE")
+} else {
+  print("not TRUE")
+}
+
+if ( 7 > 8){
+  print("first one is True")
+
+} else if ( 7 < 8){
+  
+  print("second one is true")
+  
+} else {
+  
+  print("nothing is true")
+  
+}
+
+if (6<7){
+  if (6> 5){
+    
+  }
+  
+}
+
+if ( 6<7 & 6 >8){
+  
+}
 
 
 ```

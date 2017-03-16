@@ -1,0 +1,51 @@
+---
+title: "Day 5, Loops Review & DplyR"
+author: "Analise Hofmann"
+date: "March 16, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Review
+
+```{r}
+#read in the table from Day 03
+#practice changing working directories
+
+
+
+```
+
+
+
+```{r}
+#use the table you read in above and write a for loop to modify it
+
+
+```
+
+
+```{r}
+#use the table above and write a while loop to modify it
+
+
+```
+
+
+## DplyR walk through from @JoeyBernhardt in UBC R Study Group
+https://github.com/JoeyBernhardt/RStudyGroup-dplyr-lesson/blob/master/dplyr-lesson.Rmd
+
+1. Let's look up the dplyR documentation. Where did you find it? What do you notice?
+2. Let's start Joey's Lesson
+3. Which libraries do we need? How can we download them? - google search
+
+```{r}
+
+
+
+
+
+```
