@@ -70,10 +70,11 @@ for (i in 1:nrow(day3table)){
 
 ```
 
-## Review 3
-Challenge for homework before next meeting.
+## New Material for Day 6
+### Making a function
+
 ```{r}
-#use the table above and write a while loop to modify it
+# we have made a function called Sum3Columns
 
 Sum3Column <- function(table, columns, nameOfColumn){
  #this function will sum the first 3 columns of a dataframe into a new column
@@ -101,33 +102,10 @@ return(table)
 day3table <- day3table_original
 columsToSum <- 
 
+#calling the function by its name and specifying specific values/variables for each argument
 functionTable <- Sum3Column(day3table, 1:2 , "Sum")
 
 ```
 
-# Writing a function
-
-```{r}
-#writing a function
 
 
-
-
-
-```
-
-
-## DplyR walk through from @JoeyBernhardt in UBC R Study Group
-https://github.com/JoeyBernhardt/RStudyGroup-dplyr-lesson/blob/master/dplyr-lesson.Rmd
-
-1. Let's look up the dplyR documentation. Where did you find it? What do you notice?
-2. Let's start Joey's Lesson
-3. Which libraries do we need? How can we download them? - google search
-
-```{r}
-
-
-
-
-
-```
