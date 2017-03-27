@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 #read in the table from Day 03
 #practice changing working directories
-day3table <-read.csv(file = "./Day_03_WorkAlong/TestData.csv")
+day3table <-read.csv(file = "../Day_03_WorkAlong/TestData.csv")
 
 
 
@@ -66,6 +66,16 @@ for (i in 1:nrow(day3table)){
 
 
 
+
+```
+# Function to do sum of rows
+```{r}
+Sum3Column <- function(table){
+  for (i in 1:nrow(table)){
+    temp <- sum(table[i,1:3])
+    table$Sum[i] <- temp
+    }
+  }
 
 ```
 
