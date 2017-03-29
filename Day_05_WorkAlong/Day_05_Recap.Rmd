@@ -22,6 +22,7 @@ output: html_document
 - review functions (we will be converting our for loops from day 05 to a function at the start of the lesson)
 
 ## Next session
+
 - make previous for loop code into functions
 - review while loops
 - if time, start the [dplyR lesson] (https://github.com/JoeyBernhardt/RStudyGroup-dplyr-lesson/blob/master/dplyr-lesson.Rmd)
