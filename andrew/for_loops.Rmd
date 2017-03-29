@@ -1,0 +1,155 @@
+---
+title: "For Loops"
+output: html_notebook
+---
+
+The for loop is a basic programming construct. It basically accomplishes the following:
+
+For each object in some group of objects, do something (with each object in that group).
+
+This is a form of **flow control**.
+
+The basic syntax looks like this:
+
+```{R}
+for (object in group_of_objects) {
+  Do something and things happen.
+}
+```
+
+Let's take a look at different ways that this might work.
+
+### Example 1
+Print all numbers from 10 to 20
+```{r}
+for (i in 10:20){
+  print(i)
+}
+
+```
+
+Couple things to note here. We can see we're printing each object that we're calling "i" in 10:20. If we didn't know, we might guess based on the results that 10:20 contains the numbers 10 to 20. Let's see what exactly it is:
+```{r}
+10:20
+typeof(10:20)
+```
+We can see that this generates a vector of integers from 10 to 20. We can find more information by googling "R colon", which brings us to the documentation page https://stat.ethz.ch/R-manual/R-devel/library/base/html/Colon.html. Giving it a read, we can see that it's equivalent to seq(from, to). This brings us to our next example.
+
+### Example 2
+Print every 5th number from 10 to 50.
+
+The colon docs above brought us to seq(). Google or use R studio console docs (type ?seq() in your console) to access the documentation.
+
+I would agree that the docs aren't always crystal clear. But looking at "by" in the arguments section, and checking out typical usages and examples, we can figure out that we need something like:
+```{R}
+for (i in seq(10, 50, by=5)){
+  print(i)
+}
+```
+
+Sweet.
+
+Now that we've got the basics down, let's try something more. What if we have a vector containing some values, and we want to do something with each value in it?
+
+### Example 3
+Print the square of every number in a vector
+
+```{R}
+data_vector <- c(2.5, 34, 8.4, 10, 0.94)
+for (i in data_vector){
+  print(i**2)
+}
+
+```
+
+So, we can see we can feed into R for loops vectors containing arbitrary data, and then we can use the for loop to do something with that data, in this case square it (Note, ** is an operator for exponentiation, for more operators see: http://www.statmethods.net/management/operators.html). It doesn't have to be numerical data:
+
+
+```{R}
+for (i in c("hello", "words", "are", "fun")){
+  print(i)
+}
+```
+
+Aside: in practice for the first example here, we were simply interested in getting a vector with the square of each value, it's probably easier to do something like this:
+
+```{r}
+squared_data_vector <- data_vector**2
+print(squared_data_vector)
+```
+
+R is designed to recognize "vector arithmetic", where it can perform operations to each element (i.e. each piece of data) in the vector. In fact this is often much faster than iterating a for loop across, due to the underlying implementation. But for our purposes, it illustrates that we can access each element of a vector in a iterative fashion.
+
+### Example 4
+Print the sum of each element in a vector with the next element the vector
+```{r}
+for (i in 1:length(data_vector)){
+  print(data_vector[i]+data_vector[i+1])
+}
+
+```
+Here, instead of iterating from the data vector per se, we generate a sequence **indices** which we then use to access the data vector. You can see that we grab the i'th element of the vector and add it to the i+1 element of the vector. Predictably, at the end we try to add a non-existent element to the last element, so we get an NA.
+
+### Example 5
+Add each element to the next element, and add those sums to a total sum.
+
+That is, we're going to do like example 4 above, but add all those numbers together.
+Ok for this we're going to have to set up a total_sum variable outside of the for loop. We're then going to call total_sum inside the loop, and add total_sum with data_vector[i] and data_vector[i+1], and then assign total_sum to that new value in each iteration of the loop :
+```{r}
+total_sum <- 0 #initialize the variable
+for (i in 1:length(data_vector)){
+  total_sum <- total_sum + data_vector[i] + data_vector[i+1]
+}
+print(total_sum)
+```
+
+Why did our sum return NA?!?! Upon pondering example 4, perhaps we realize that R's default behaviour is to give us NA when we try to add NA to a number.
+
+How do we fix this? It depends on what we're trying to do. Consider the following:
+```{r}
+total_sum <- 0 #initialize the variable
+for (i in 1:(length(data_vector)-1)){
+  total_sum <- total_sum + data_vector[i] + data_vector[i+1]
+}
+print(total_sum)
+```
+
+I've changed the indices to go from 1:(length(data_vector)-1). This definitely get's us a sum, but note that of the 5 elements in the vector, the net result is that we've added the first and last elements once, and the middle 3 elements twice. That is, it's: (2.5+34)+(34+8.4)+(8.4+10)+(10+0.94). So if you want to add the last element again, you'll have to do something different.
+
+The point of this example though is to illustrate the important concept of **initializing a variable** (when we set total_sum = 0) outside of a for loop, then using a for loop to do things repeatedly to the initialized variable.
+
+## Exercises
+For loops are a VERY important basic skill in the programming repertoire, and it is ESSENTIAL that you get a grip on them. Like playing a piano, the only way to do so is to practice.
+
+For all programming problems, there is usually more than one way to do it. So give the ones below a try and discuss on Github/Slack your answers! And remember: GOOGLE IS YOUR BEST FRIEND
+
+
+### Problem 1
+Use a for loop to print a sequence of numbers from 20 to 1, going by 2's (e.g. 20, 18, 16...).
+
+### Problem 2
+Given two vectors of equal length, add each element together and print it. (i.e. the first element of vector_1 is added to the first element of vector_2, the second to the second.
+
+```{r}
+vector_1 <- c(1,2,3,4,5)
+vector_2 <- c(3,7,97,3,44)
+```
+
+### Problem 3
+Find the sum of every odd numbered element (i.e. the first, third, fifth...) in the following vector:
+```{r}
+vector_of_numbers <- c(3,7,2,6,5,7,9,6,4,3,3,5,6,7,5,4,3,6,7,1,1,1,1,1,5,6,8,6,9,0,0,8,6)
+```
+
+### Problem 4
+For example 5 above, find a way to add the last element one more time. Many ways to do this, some with no use of for loops at all!
+
+### Problem 5
+For a vector of numbers, initialize a sum, and then add every odd numbered element, while subtracting every even numbered element (i.e. add the first element, subtract the 2nd element, add the third, subtract the 4th...)
+
+```{r}
+# The following code generates a reproducible vector of random numbers
+set.seed(123)
+vector_of_numbers <- sample(seq(1,100,by=1), size=41, replace = TRUE)
+print(vector_of_numbers)
+```
