@@ -8,10 +8,10 @@ We are using the [Issues](https://github.com/ahofmann4/XX_CodingClub/issues) sec
 To get in contact with Analise, and get added to our mailing list fill out this [form](https://goo.gl/forms/7pw3nsH2IVyPkQGp1).
 
 
-Date | Time | Building & Room 
-:----- | ---- | -------------|
-Tue March 28, 2017 | 4:30 pm | LSI Room 1416 
-Tue April 4, 2017 | 4:30 pm | LSI Room 1330
-Tue April 11, 2017 | 4:30 pm | LSI Room 1416
-Tue April 18, 2017 | 4:30 pm | LSI Room 1330
-Tue April 25, 2017 | 4:30 pm | LSI Room 1330
+Date | Time | Building & Room | Proposed Topic 
+:----- | ---- | -------------| -------
+Tue March 28, 2017 | 4:30 pm | LSI Room 1416 | If Statements
+Tue April 4, 2017 | 4:30 pm | LSI Room 1330 | While Loops
+Tue April 11, 2017 | 4:30 pm | LSI Room 1416 | Review For Loops, While Loops, & If statements 
+Tue April 18, 2017 | 4:30 pm | LSI Room 1330 | Make functions to solve simple analysis problems
+Tue April 25, 2017 | 4:30 pm | LSI Room 1330 | TBA
