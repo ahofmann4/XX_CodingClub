@@ -1,9 +1,15 @@
 # XX Coding Club 
+The goal is to provide you with the tools and understanding to get programming on your own.
+- If in doubt, just come to a session!
+- We are always reviewing what we have done previously and do activities in groups so that there is always someone to help you get caught up! 
+
 **UBC LSI,Tuesdays at 4:30 pm**  ** **LOCATION CHANGES! (see schedule below)** **
 
 See the .Rmd recap files / Day folders to see what we have been up to each day and what we plan to do during the next time. 
 
-We are using the [Issues](https://github.com/ahofmann4/XX_CodingClub/issues) section to post coding challenges that help practice what we are learning. Also, post any lesson ideas as a new issue! 
+We are using the [Issues](https://github.com/ahofmann4/XX_CodingClub/issues) section to post coding challenges that help practice what we are learning. Also, post any lesson ideas as a new issue! Nothing is too simple or silly to post to the issues to get some help!! 
+
+We recently also started using [Projects](https://github.com/ahofmann4/XX_CodingClub/projects) to help focus our tasks for practice sets, and lessons we want to see. We welcome any and all contributions and suggestions!
 
 To get in contact with Analise, and get added to our mailing list fill out this [form](https://goo.gl/forms/7pw3nsH2IVyPkQGp1).
 
