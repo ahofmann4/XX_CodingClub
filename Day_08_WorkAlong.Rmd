@@ -51,7 +51,7 @@ while (x>5){
 ### Activity 1
 Write a while loop that prints out your name, one time for each letter of your name (aka. Analise needs to be printed 7 times)
   - useful website [1](http://stackoverflow.com/questions/1169456/the-difference-between-and-notations-for-accessing-the-elements-of-a-lis)
-  - extra reading on [stringR] package (https://cran.r-project.org/web/packages/stringr/stringr.pdf)
+  - extra reading on [stringR](https://cran.r-project.org/web/packages/stringr/stringr.pdf) package
 ```{r}
 name1 <- "Analise"
 # ?strsplit #use this to get help documentation
