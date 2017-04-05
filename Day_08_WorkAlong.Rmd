@@ -12,7 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 # While Loops & Logical Statements
 While Loops:
   - web resource [1](http://www.endmemo.com/program/R/while.php)
-  - web resource [2] (https://www.tutorialspoint.com/r/r_while_loop.htm)
+  - web resource [2](https://www.tutorialspoint.com/r/r_while_loop.htm)
+  
 Logicals:
   - web resource [1](http://www.astrostatistics.psu.edu/su07/R/html/base/html/Logic.html)
 
