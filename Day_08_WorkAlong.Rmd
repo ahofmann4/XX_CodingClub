@@ -1,5 +1,5 @@
 ---
-title: "Day_07_WorkAlong"
+title: "Day_08_WorkAlong"
 author: "Analise Hofmann"
 date: "April 4, 2017"
 output: html_document
@@ -16,10 +16,56 @@ While Loops:
 Logicals:
   - web resource [1](http://www.astrostatistics.psu.edu/su07/R/html/base/html/Logic.html)
 
+# Example 1
+```{r}
+# fix the below syntax, run the code, what happens?
+# x <- 1
+# while(x < 5) {x <- x+1; print(x);}
+x<- 1
+while( x < 5){
+  x<- x+1
+  print(x)
+}
+
+# how can we complete the same code above, but print 1 to 5, not just 2 to 5?
+x<- 1
+while( x <= 5){
+  print(x)
+  x<- x+1 #unlinke in a for loop we must manually increase the interation
+}
+
+# What happens if you change x <- 6
+# while(x > 5) {x <- x-1; print(x);}
+while (x>5){
+  print(x)
+  
+  
+  x<- x-1 #best to put interator at the end so that the value isn't changed until it gets to the next interation just in case the interator is used in the code.
+}
+
+
+```
+
+
 ### Activity 1
 Write a while loop that prints out your name, one time for each letter of your name (aka. Analise needs to be printed 7 times)
+  - useful website [1](http://stackoverflow.com/questions/1169456/the-difference-between-and-notations-for-accessing-the-elements-of-a-lis)
+  - extra reading on [stringR] package (https://cran.r-project.org/web/packages/stringr/stringr.pdf)
 ```{r}
+name1 <- "Analise"
+# ?strsplit #use this to get help documentation
+name2 <- strsplit(name1, split="")
+name2[2] <- "Hofmann" #adding an element to the list
+length(name2[[1]]) #gets us the length of the list element #1 (use double square brackets)
+x<-1
+while(x<=length(name2[[1]])){
+  print(paste("interval is: ", x))
+  # print(name1) #fix 1
+   print(paste(name2[[1]], collapse = ""))
+  x<- x+1
+}
 
+?paste #get help with
 
 
 
@@ -29,8 +75,20 @@ Write a while loop that prints out your name, one time for each letter of your n
 ### Activity 2
 Write a while loop that uses 'next'
 ```{r}
-
-
+#convert the below code to normal syntax
+# while(x < 5) { if (x == 3) next; print(x);x <- x+1;}
+x<-1
+y<-0
+while(x<5){
+  if(x==3){
+    x<- x+1
+    next
+  }
+  y <- y+x
+  print(paste("iteration: ", x))
+  print(paste("y is ",y))
+  x<- x+1
+}
 
 
 ````
@@ -39,6 +97,16 @@ Write a while loop that uses 'next'
 ### Activity 3
 write a while loop that uses 'break' to exit the loop
 ```{r}
-
+x<-1
+y<-0
+while(x<5){
+  if(x==3){
+    break
+  }
+  y <- y+x
+  print(paste("iteration: ", x))
+  print(paste("y is ",y))
+  x<- x+1
+}
 
 ```
