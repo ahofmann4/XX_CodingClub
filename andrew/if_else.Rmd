@@ -1,0 +1,191 @@
+---
+title: "if, else if, else, switch"
+output: html_notebook
+---
+
+**Flow control** refers how our programs decide which parts of their code to execute. Often we'll want to execute code based on whether certain conditions are true. In programming, we use **conditionals** to do so. Conditionals are a basic skill of programming and must be mastered. For a quick reference, [see this link](https://www.tutorialspoint.com/r/r_decision_making.htm).
+
+I'll illustrate with a real life example:
+
+----
+
+_If the weather is sunny outside, then I will go hiking._
+
+_Or else if the weather is snowing, then I will go snowboarding._
+
+_Otherwise, I'll work in the lab._
+
+----
+
+Notice the pattern: *If* ( some condition that is true or false ) { actions }.
+In code, we formally refer to these components as: if ( boolean expression ) { statements }.
+
+## Booleans
+A quick review of Booleans. Boolean is a data type with two possible values: ```TRUE``` and ```FALSE```. We can construct various boolean expressions that perform logic and evaluate to ```TRUE``` or ```FALSE```, using [logical operators](http://www.statmethods.net/management/operators.html). 
+
+```{r}
+a <- TRUE
+b <- FALSE
+c <- 3
+print(a && b)
+print(a || b)
+print (!a)
+print(c==3)
+
+```
+
+## The **If** statement
+
+The If statement executes a block of code only if it's conditional Boolean expression is ```TRUE```:
+
+```{r}
+a <- 3
+if (a == 3) { #If a equals 3
+  print("a is equal to 3")
+}
+```
+The conditional is placed within parentheses, and the block of code within curly braces. If the expression is ```FALSE```, the code does not run.
+```{r}
+if (a != 3) { #If a does not equal 3
+  print("a does not equal 3")
+}
+print("If there's no code above this line, the if statement did not execute")
+```
+
+Note: it is customary to indent code blocks within if statements. This makes for easier reading, and Rstudio should automatically be doing this for you.
+
+You can nest if statements as much as you like:
+```{r}
+a <- 3
+b <- 4
+if (a == 3 ){
+  if (b <= 5){
+    print("a is 3 and b is smaller than 5")
+  }
+  if (b >= 5){
+    print("a is 3 and b is smaller than 5")
+  }
+}
+```
+You can nest indefinitely, but then it gets ugly to read, and remember: good code tries to be easy to understand both by others, as well as yourself, including your future self, who may be only half an hour away.
+
+Note: the boolean expression can be any that evaluates to TRUE/FALSE, so feel free to use variables in the conditional.
+```{r}
+a <- 3
+b <- 6
+c <- (a**2 + b/5) == 4
+if (!c){
+  print("wow c is false")
+}
+  
+```
+
+## If..else if.. else
+
+When we want to decide between multiple choices, we can use the if...else if... else constructs:
+```{r}
+animal <- "dog"
+
+if (animal == "cat"){
+  print("Good kitty!")
+} else if (animal =="dog"){
+  print("Nice doggo!")
+} else {
+  print("UNRECOGNIZED MAMMAL ENCOUNTERED")
+}
+
+```
+These conditionals are linked together in a construct (e.g. you can't have ```else if``` or ```else``` if you don't start with an ```if```. The code above first checks if the ```if``` condition is true, then if it's false, it will check if the ```else if``` condition is true. Finally, it will default to the code in the ```else``` block.
+
+Note: a If...else if chain only will process UP TO a true condition:
+```{r}
+if(FALSE){
+  print("1")
+} else if (FALSE){
+  print("2")
+} else if (TRUE){
+  print("3") # This executes
+} else if (TRUE){
+  print("4") # This does not.
+}
+
+```
+Note: in the above code, I used if..else if, but I didn't use else, so there's no default option here.
+
+## Switch()
+If..else if... else will get you a lot of mileage. But sometimes it can be messy to write 20 else if statements. The ```switch()``` function can come in handy here. But it's a little more convoluted so we'll come back to this in another tutorial/problem set.
+
+# Problems
+## Problem 1 Warmup
+Write a program that compares two integers and prints "equal" if they're equal, and "not equal" if they're not.
+```{r}
+a = 5 #change integers as required
+b = 5
+```
+## Problem 2
+Write a program that compares three integers and prints "equal" if they're ALL equal, and prints "not all equal" if they're not.
+
+Bonus: Find the built-in R function that does this.
+```{r}
+# example integers
+a = 5
+b = 5
+c = 6
+```
+## Problem 3
+Given a logical vector (e.g. TRUE/FALSE), there is a built-in R function that will return TRUE if any of the elements are TRUE. Use your technical sophistication (e.g. your Google powers) to find this function.
+```{r}
+# Feeding this vector as an argument to this function will yield TRUE
+vector_of_booleans = c(FALSE, FALSE, FALSE, TRUE, FALSE)
+```
+### Problem 4 Simple decision tree
+Patients in a hospital can have symptom 1, or symptom 2, or both. In the following code, patients are given a two element vector, their status of having symptom 1 and 2 indicated as TRUE/FALSE in the 1st and 2nd element respectively. Separate patients into groups A for symptom 1, B for symptom 2, and C if they have both symptoms. Do this by changing patient_to_test, and then printing e.g. "Group A" depending on their symptoms. If they have no symptoms, print "No symptoms". Hint: you can accomplish this using nested conditionals, or using logical operators. Be sure to test your code on all 4 patients to see if it works.
+
+```{r}
+PATIENT_1 <- c(TRUE, FALSE)
+PATIENT_2 <- C(FALSE, TRUE)
+PATIENT_3 <- c(TRUE, TRUE)
+PATIENT_4 <- c(FALSE, FALSE)
+patient_to_test <- PATIENT_1 # change this to the patient you want to test.
+
+# Your code goes here.
+
+
+```
+### Problem 5:
+Pneumonoultramicroscopicsilicovolcanoconiosis is the longest word in English dictionaries. It is broken up in a vector of letters below. In the for loop provided, every time the letter "o" comes up, print "Letter O", and every time the letter "l" comes up, print "Letter L".
+
+BONUS: Initialize some variables outside the for loop, and use if statements to count how many times the letter "o" comes up.
+BONUS 2: Find another way of counting o's in the word without using the for loop at all!
+
+```{r}
+letters = strsplit("pneumonoultramicroscopicsilicovolcanoconiosis", split="")[[1]]
+
+for (letter in letters){
+  #Your code here
+}
+
+```
+
+
+### Problem 6: FizzBuzz
+The [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) problem is an often-asked basic coding interview question (and a children's learning game). Given a number x between 1 and 100, if it's a multiple of 3, print "Fizz", if it's a multiple of 5, print "Buzz", if it's a multiple of both 3 and 5, print "FizzBuzz", otherwise just print the number. You can either assign a variable to be your "test number", or better yet, write your conditionals inside a for loop that iterates over a vector of integers from 1 to 100.
+```{r}
+# Option A
+x <- 3
+## You can change x to be the following: 3, 5, 12, or 15
+## When x is 3, your conditionals should print "Fizz"
+## When x is 5, your conditionals should print "Buzz"
+## When x is 12, your conditionals should print "14"
+## When x is 15, your conditionals should print "FizzBuzz".
+## Note: Of course, you may want to check other numbers too, e.g. 20,21
+## Hint: You should be able to do this without using the paste() function.
+
+# Option B
+## First write a for loop that iterates from 1 to 100.
+## Put your conditional code inside the for loop.
+
+```
+
+
+
