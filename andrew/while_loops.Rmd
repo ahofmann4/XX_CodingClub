@@ -1,0 +1,94 @@
+---
+title: "While loop problem set"
+output: html_notebook
+---
+
+While loops are another type of loop construct, and are a complement to for loops. However, instead of of having a built-in iterator, a while loop continues to run cycles through the loop as long as it's conditional statement is true.
+
+### Example 1:
+
+```{r}
+i <- 5
+while (i==5){
+  print("i is 5, ha!")
+}
+```
+This starts printing, and keeps printing, because unless something changes the value of 5,```i==5``` remains true.
+
+Let's change the loop so that the loop will terminate:
+```{r}
+i <- 5
+while (i==5){
+  print("i is 5, ha!")
+  i <- 6
+}
+
+```
+Let's break down what's happening here:
+1) We set i <- 5
+2) The while loop checks whether i == 5. It's TRUE, so the while loop continues.
+3) The while loop goes through one loop cycle. During this cycle, we set i<-6.
+4) The while loop starts at the top again.
+5) The while loop checks whether i == 5. It does not.
+6) The while loop breaks, and stops running.
+
+### Example 2
+
+We can imitate a for loop with the while loop, by **incrementing** a variable:
+```{r}
+i <- 0
+while (i<5){
+  print(i)
+  i <- i + 1
+}
+```
+Thus at the end of each loop we increment i by 1. This code accomplishes the results as:
+```{r}
+for (i in 0:4){
+  print(i)
+}
+```
+I personally prefer the for loop in this case, because it is more clear to me. So let's take a look at some examples where we can see different uses of the while loop.
+
+
+### Example 3: Powers_of_Two
+Example 3 and Example 4 are taken from Introduction to Programming in Java by Sedgewick and Wayne, and I've converted them to R. They're provided to demonstrate what while loops might be used for.
+
+Powers_Of_Two takes a integer, and creates a vector that contains all the powers of 2 that are less than that integer.
+
+```{r}
+N <- 79 # Change this number to your liking
+#### Don't modify code under this line ####
+vector_of_numbers <- as.integer()
+v <- 1
+i <- 0
+while (v<=N){
+  print(paste(i, " ", v))
+  vector_of_numbers <- c(vector_of_numbers, v)
+  v <- 2*v
+  i <- i + 1
+}
+print(vector_of_numbers)
+```
+
+### Example. 
+Suppose you had an elevator with a 500 kg weight limit. You have a vector of people and a vector of their weights, lined up to take the elevator. How many people can you fit on the elevator without overloading it?
+```{r}
+elevator_weight_limit <- 500
+people_in_line <- c("John", "Jenny", "Judy", "Jimmy", "Jordan", "Joseph", "Jacob", "Jieyoo", "Jiro")
+weights_of_people <- c(60.5, 50.8, 55.9, 120.3, 80.4, 74.3, 71.0, 66.0, 59.8)
+# Empty vector for people in elevator
+people_in_elevator <- as.character()
+```
+If we wanted to use a for loop, we wouldn't know ahead of time when to stop the for loop. So let's use a while loop, so that while the total weight in the elevator is under the weight limit, we'll keep adding people.
+```{r}
+current_weight <- 0
+while (current_weight < elevator_weight_limit){
+  i+1 <- length(people_in_elevator) # current index that we'll use to call people_in_line vector
+  
+}  
+```
+
+
+### Problem
+Use _____ to get a while loop that terminates randomly.

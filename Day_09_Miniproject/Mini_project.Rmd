@@ -1,0 +1,90 @@
+---
+title: "Miniproject Apr 11"
+output: html_notebook
+---
+# Miniproject
+For each of the following steps, let's make sure we understand what "objects" we're passing through to each step. Note: this miniproject is more about writing code, rather than good data analysis practices per se.
+
+## Preliminaries
+
+Set working directory and read in CSV file.
+
+```{r}
+setwd("D:/XX_CodingClub/Day_09_Miniproject/")
+raw_data_table <- 
+```
+
+Inspect the data.
+
+```{r}
+
+```
+
+Looks like we have gene names and a bunch column labels. If we take a look at conditions_annotations.csv, we see that the different labels correspond to different experiments. Note: these data are generated from different labs with different conditions etc., but for the sake of this miniproject, we're going to pretend we can compare data directly.
+
+Ok, let's take compare two experiments. AFIQCI corresponds to a WT experiment, AFNCCR corresponds to a swr1 mutant. We can use the $ operator to slice out the columns by their name.
+```{r}
+
+```
+The colnames are hard to read, so let's rename the column names.
+```{r}
+
+```
+Ok let's take a look at some quick summary statistics. Looks like we might not have a very well distributed data set.
+```{r}
+
+```
+
+Let's plot WT vs swr1 on x and y to see.
+
+```{r}
+
+```
+
+Looks like there might be a massive outlier. Let's restrict the range to see more variation bottom left region.
+
+```{r}
+
+```
+
+How many values to we lose when we restrict the view like this?
+```{r}
+
+```
+
+So either of these views we're still getting most of the data.
+
+Since we're here to compare change between the two conditions, let's make a new column doing just that. We'll also log2 it, so that decreases become negatives, and increases become positives.
+
+
+```{r}
+
+```
+
+And for good measure, I'm going to create a new object where we sort this data_table. That way the genes at the top are the greatest increase, and the genes at the bottom are the greatest decrease. We can use the order function to perform this on data frames. order() returns a vector of indices in sorted order, which we can then use to call data_table rows in the appropriate order.
+```{r}
+
+```
+
+Uh oh. Looks like we get some weird values when either or both of the genes have 0 expression. Let's split up the data table into well behaved and not so well behaved subsets to see what's going on. We'll create a logical vector to find where WT or swr1 are == 0. The single pipe | operator is a vectorized inclusive OR. Because R coerces TRUE to 1 and FALSE to 0 when you try to add them, we can sum() to see how many abnormals we have
+
+```{r}
+
+
+```
+
+Now let's use this logical vector to split off our data set. We'll use ! to get the normal genes.
+```{r}
+
+```
+Let's take a look at our normal data set now
+
+```{r}
+
+```
+
+Let's take a look at the distribution. 
+
+```{r}
+
+```

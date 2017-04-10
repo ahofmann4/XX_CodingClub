@@ -1,0 +1,107 @@
+---
+title: "Miniproject Apr 11"
+output: html_notebook
+---
+# Miniproject
+For each of the following steps, let's make sure we understand what "objects" we're passing through to each step. Note: this miniproject is more about writing code, rather than good data analysis practices per se.
+
+## Preliminaries
+
+Set working directory and read in CSV file.
+
+```{r}
+setwd("D:/XX_CodingClub/Day_09_Miniproject/")
+raw_data_table <- read.csv("yeast-transcriptomics/SC_expression.csv")
+```
+
+Inspect the data.
+
+```{r}
+head(raw_data_table)
+```
+
+Looks like we have gene names and a bunch column labels. If we take a look at conditions_annotations.csv, we see that the different labels correspond to different experiments. Note: these data are generated from different labs with different conditions etc., but for the sake of this miniproject, we're going to pretend we can compare data directly.
+
+Ok, let's take compare two experiments. AFIQCI corresponds to a WT experiment, AFNCCR corresponds to a swr1 mutant. We can use the $ operator to slice out the columns by their name.
+```{r}
+data_table <- data.frame(raw_data_table$X, raw_data_table$AFIQCI, raw_data_table$AFNCCR)
+head(data_table)
+```
+The colnames are hard to read, so let's rename the column names.
+```{r}
+colnames(data_table) <- c("Gene", "WT", "swr1")
+head(data_table)
+```
+Ok let's take a look at some quick summary statistics. Looks like we might not have a very well distributed data set.
+```{r}
+summary(data_table$WT)
+summary(data_table$swr1)
+```
+
+Let's plot WT vs swr1 on x and y to see.
+
+```{r}
+plot(data_table$WT, data_table$swr1)
+```
+
+Looks like there might be a massive outlier. Let's restrict the range to see more variation bottom left region.
+
+```{r}
+plot(data_table$WT, data_table$swr1, xlim=c(0,100), ylim=c(0,100))
+plot(data_table$WT, data_table$swr1, xlim=c(0,1000), ylim=c(0,1000))
+```
+
+How many values to we lose when we restrict the view like this?
+```{r}
+str(data_table)
+sum(data_table$WT >= 100)
+sum(data_table$swr1 >= 100)
+sum(data_table$WT >= 1000)
+sum(data_table$swr1 >= 1000)
+```
+
+So either of these views we're still getting most of the data.
+
+Since we're here to compare change between the two conditions, let's make a new column doing just that. We'll also log2 it, so that decreases become negatives, and increases become positives.
+
+
+```{r}
+data_table$Ratio <- log2(data_table$swr1/data_table$WT)
+head(data_table)
+```
+
+And for good measure, I'm going to create a new object where we sort this data_table. That way the genes at the top are the greatest increase, and the genes at the bottom are the greatest decrease. We can use the order function to perform this on data frames. order() returns a vector of indices in sorted order, which we can then use to call data_table rows in the appropriate order.
+```{r}
+data_table_sorted <- data_table[order(data_table$Ratio),] 
+head(data_table_sorted)
+tail(data_table_sorted)
+```
+
+Uh oh. Looks like we get some weird values when either or both of the genes have 0 expression. Let's split up the data table into well behaved and not so well behaved subsets to see what's going on. We'll create a logical vector to find where WT or swr1 are == 0. The single pipe | operator is a vectorized inclusive OR. Because R coerces TRUE to 1 and FALSE to 0 when you try to add them, we can sum() to see how many abnormals we have
+
+```{r}
+abnormals <- data_table_sorted$WT == 0 | data_table_sorted$swr1 == 0
+sum(abnormals)
+
+```
+
+Now let's use this logical vector to split off our data set. We'll use ! to get the normal genes.
+```{r}
+data_table_sorted_abnormal <- data_table_sorted[abnormals,]
+data_table_sorted_normal <- data_table_sorted[!abnormals,]
+```
+Let's take a look at our normal data set now
+
+```{r}
+head(data_table_sorted_normal, n=10)
+tail(data_table_sorted_normal, n=10)
+```
+
+Let's take a look at the distribution. 
+
+```{r}
+plot(1:length(data_table_sorted$Gene),data_table_sorted$Ratio)
+```
+
+
+
