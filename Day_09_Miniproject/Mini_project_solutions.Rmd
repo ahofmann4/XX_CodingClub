@@ -5,6 +5,8 @@ output: html_notebook
 # Miniproject
 For each of the following steps, let's make sure we understand what "objects" we're passing through to each step. Note: this miniproject is more about writing code, rather than good data analysis practices per se.
 
+Data is from https://www.kaggle.com/costalaether/yeast-transcriptomics
+
 ## Preliminaries
 
 Set working directory and read in CSV file.
