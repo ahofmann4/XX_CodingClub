@@ -12,41 +12,61 @@ Data is from https://www.kaggle.com/costalaether/yeast-transcriptomics
 Set working directory and read in CSV file.
 
 ```{r}
-setwd("D:/XX_CodingClub/Day_09_Miniproject/")
-raw_data_table <- 
+setwd("./Day_09_Miniproject/")
+
+raw_data_table <- read.csv("yeast-transcriptomics/SC_expression.csv")
 ```
 
 Inspect the data.
 
 ```{r}
-
+head(raw_data_table, n=10)
+tail(raw_data_table, n=10)
 ```
 
 Looks like we have gene names and a bunch column labels. If we take a look at conditions_annotations.csv, we see that the different labels correspond to different experiments. Note: these data are generated from different labs with different conditions etc., but for the sake of this miniproject, we're going to pretend we can compare data directly.
 
 Ok, let's take compare two experiments. AFIQCI corresponds to a WT experiment, AFNCCR corresponds to a swr1 mutant. We can use the $ operator to slice out the columns by their name.
-```{r}
 
+```{r}
+#Analise's Way, creates subsets of table
+afi_afn_data <- raw_data_table[, c("X", "AFIQCI", "AFNCCR")]
+#Andrew's Way, rips data to create more data
+data_table <- data.frame(raw_data_table$X, raw_data_table$AFIQCI, raw_data_table$AFNCCR)
 ```
 The colnames are hard to read, so let's rename the column names.
 ```{r}
-
+colnames(data_table)
+colnames(data_table) <- c("Gene", "WT", "swr1")
+head(data_table)
 ```
 Ok let's take a look at some quick summary statistics. Looks like we might not have a very well distributed data set.
 ```{r}
-
+max(data_table$WT)
+summary(data_table)
+summary(data_table$WT)
 ```
 
 Let's plot WT vs swr1 on x and y to see.
 
 ```{r}
-
+#generic plotting
+plot(data_table$WT, data_table$swr1)
+#restricting max and min to get rid of outlier skewing graph
+plot(data_table$WT, data_table$swr1, xlim=range(0,650), ylim=range(0,850))
 ```
 
 Looks like there might be a massive outlier. Let's restrict the range to see more variation bottom left region.
 
 ```{r}
-
+#structure
+str(data_table)
+#not the way to do it lol
+data_table$WT > 1000
+#true + true = 1
+sum(c(TRUE, FALSE, TRUE))
+#Therefore we can do this to get the number of data points above 1000
+sum(data_table$WT > 1000)
 ```
 
 How many values to we lose when we restrict the view like this?
@@ -60,24 +80,44 @@ Since we're here to compare change between the two conditions, let's make a new 
 
 
 ```{r}
-
+#Add column of log2 of ratio between WT and swr1
+data_table$log2ratios <- log2(data_table$WT/data_table$swr1)
+#check
+head(data_table)
+#for removing a column....?
 ```
 
 And for good measure, I'm going to create a new object where we sort this data_table. That way the genes at the top are the greatest increase, and the genes at the bottom are the greatest decrease. We can use the order function to perform this on data frames. order() returns a vector of indices in sorted order, which we can then use to call data_table rows in the appropriate order.
 ```{r}
-
+#make new data table to sort the data, use command called 'order'
+data_table_sorted <- data_table[order(data_table$log2ratios),]
+#head table data is -inf b/c log of 0
+head(data_table_sorted)
+#tail table data is undefined b/c 0/0 is undefined
+tail(data_table_sorted)
 ```
 
 Uh oh. Looks like we get some weird values when either or both of the genes have 0 expression. Let's split up the data table into well behaved and not so well behaved subsets to see what's going on. We'll create a logical vector to find where WT or swr1 are == 0. The single pipe | operator is a vectorized inclusive OR. Because R coerces TRUE to 1 and FALSE to 0 when you try to add them, we can sum() to see how many abnormals we have
 
 ```{r}
-
-
+data_table$WT == 0
+data_table$swr1 == 0
+test1 <- c(TRUE, FALSE)
+test2 <- c(FALSE, TRUE)
+test1 | test2
+#
+data_table_abnormals <- data_table_sorted$WT == 0 | data_table_sorted$swr1 == 0
+#how many abnormal values are there?
+sum(data_table_abnormals)
 ```
 
 Now let's use this logical vector to split off our data set. We'll use ! to get the normal genes.
 ```{r}
-
+# ! is called the "not" operator, gives you the opposite, in this case the FALSES
+data_table_sorted_normal <- data_table_sorted [!data_table_abnormals,]
+data_table_sorted_abnormal <- data_table_sorted [data_table_abnormals,]
+head(data_table_sorted_normal)
+head(data_table_sorted_abnormal)
 ```
 Let's take a look at our normal data set now
 
@@ -88,5 +128,6 @@ Let's take a look at our normal data set now
 Let's take a look at the distribution. 
 
 ```{r}
-
+#now we've excluded all the weird values of -inf and NaN, so can plot log2 values
+plot(data_table_sorted_normal$log2ratios)
 ```
