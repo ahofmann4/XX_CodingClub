@@ -12,14 +12,13 @@ Data is from https://www.kaggle.com/costalaether/yeast-transcriptomics
 Set working directory and read in CSV file.
 
 ```{r}
-setwd("D:/XX_CodingClub/Day_09_Miniproject/")
-raw_data_table <- read.csv("./yeast-transcriptomics/SC_expression.csv")
+
 ```
 
 Inspect the data.
 
 ```{r}
-head(raw_data_table, n=10)
+
 
 ```
 
@@ -27,8 +26,7 @@ Looks like we have gene names and a bunch column labels. If we take a look at co
 
 Ok, let's take compare two experiments. AFIQCI corresponds to a WT experiment, AFNCCR corresponds to a swr1 mutant. We can use the $ operator to slice out the columns by their name.
 ```{r}
-data_table <- data.frame(raw_data_table$X, raw_data_table$AFIQCI, raw_data_table$AFNCCR)
-head(data_table)
+
 
 ```
 The colnames are hard to read, so let's rename the column names.
