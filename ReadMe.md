@@ -18,6 +18,6 @@ Date | Time | Building & Room | Proposed Topic
 :----- | ---- | -------------| -------
 Tue March 28, 2017 | 4:30 pm | LSI Room 1416 | If Statements
 Tue April 4, 2017 | 4:30 pm | LSI Room 1330 | While Loops
-Tue April 11, 2017 | 4:30 pm | LSI Room 1416 | Review For Loops, While Loops, & If statements 
-Tue April 18, 2017 | 4:30 pm | LSI Room 1330 | Make functions to solve simple analysis problems
+Tue April 11, 2017 | 4:30 pm | LSI Room 1416 | Miniproject Part 1 (using skills we covered, aka a good review!) 
+Tue April 18, 2017 | 4:30 pm | LSI Room 1330 | Revisiting Miniproject Part 1 OR Minproject Part 2 (depending on turnout, still review!)
 Tue April 25, 2017 | 4:30 pm | LSI Room 1330 | TBA
