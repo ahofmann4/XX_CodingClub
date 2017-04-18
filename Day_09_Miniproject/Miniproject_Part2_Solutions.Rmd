@@ -1,0 +1,78 @@
+---
+title: "Miniproject_Part2_Graphing"
+author: "Analise Hofmann"
+date: "April 18, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# get data
+```{r}
+library(dplyr)
+library(ggplot2)
+
+data_table_cnt <-read.csv(file = "./yeast-transcriptomics/data_table_normal.csv")
+
+```
+
+# Take a look at the file that was read in. 
+ - what is happening? do we need to remove any columns?
+```{r}
+head(data_table_cnt)
+
+#remove column 1
+data_table_cnt <- data_table_cnt[,-1]
+dat_table_raw <- data_table_cnt[,-4] # remove the ratio values for now
+
+head(data_table_cnt)
+head(dat_table_raw)
+```
+
+# Do we want to normalize the experiments to a reference gene? How does that change the data? (lapply)
+  - ACT1 (actin) ORF = YFL039C
+  - TUB1 (alpha tubulin) ORF = YML085C
+## get the raw values for each genotype for actin and tubulin  
+```{r}
+act1_row <- data_table_cnt[data_table_cnt$ORF == "YFL039C",]
+tub1_row <- data_table_cnt[data_table_cnt$ORF == "YML085C",]
+
+act1_WT <- act1_row[1,2]
+act1_swr1 <- act1_row[1,3]
+
+tub1_wt <- tub1_row[1,2]
+tub1_swr1 <- tub1_row[1,3]
+
+```
+
+## normalize the data to actin
+```{r}
+data_act1 <- data_table_cnt
+data_act1$WT <- lapply(data_table_cnt$WT, function(x) x/act1_WT)
+data_act1$swr1 <- lapply(data_table_cnt$WT, function(x) x/act1_swr1)
+
+plot(data_act1$WT , data_act1$swr1, xlim = c(0,20), ylim= c(0,20))
+
+plot(data_act1$WT , data_act1$swr1, xlim = c(0,4), ylim= c(0,4))
+
+plot(data_act1$WT , data_act1$swr1, xlim = c(0,1), ylim= c(0,1))
+
+#calculate the new ratios with a loop
+
+
+#easy way
+data_act1$Ratios <- (data_table_2$WT/data_table_2$swr1)
+```
+
+## normalize the data to tubulin
+```{r}
+
+
+```
+
+
+# Convert the loop above into a function so that we can just call the function to calculate the ratios of tubulin.
+```{r}
+
+```

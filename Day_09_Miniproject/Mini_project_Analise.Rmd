@@ -108,6 +108,7 @@ Let's take a look at our normal data set now
 
 ```{r}
 head(data_table_normal)
+write.csv(file = "./yeast-transcriptomics/data_table_normal.csv", data_table_normal)
 ```
 
 Let's take a look at the distribution. 

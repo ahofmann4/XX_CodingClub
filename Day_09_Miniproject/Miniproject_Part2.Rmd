@@ -1,0 +1,58 @@
+---
+title: "Miniproject_Part2_Graphing"
+author: "Analise Hofmann"
+date: "April 18, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# get data
+```{r}
+library(dplyr)
+library(ggplot2)
+
+data_table_cnt <-read.csv(file = "./yeast-transcriptomics/data_table_normal.csv")
+
+```
+
+# Take a look at the file that was read in. 
+ - what is happening? do we need to remove any columns?
+```{r}
+
+
+
+```
+
+# Do we want to normalize the experiments to a reference gene? How does that change the data? (lapply)
+  - ACT1 (actin) ORF = YFL039C
+  - TUB1 (alpha tubulin) ORF = YML085C
+## get the raw values for each genotype for actin and tubulin  
+```{r}
+
+
+```
+
+## normalize the data to actin
+```{r}
+
+
+#calculate the new ratios with a loop
+
+
+#easy way
+
+```
+
+## normalize the data to tubulin
+```{r}
+
+
+```
+
+
+# Convert the loop above into a function so that we can just call the function to calculate the ratios of tubulin.
+```{r}
+
+```
