@@ -1,0 +1,88 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+ # General plan
+
+- General Attitudes
+    - There may be stupid ideas, stupid questions, or stupid answers,
+      BUT THERE ARE NO STUPID PEOPLE.
+    - Please toss out any hesitation about looking stupid.
+    - This is a safe space, and we're all trying to learn and get better.
+    - There is no wrong way to search for help. Professionals frequently Google stuff.
+    - Ask your friends for help and discussion
+    - Coding is learnt by doing, not by reading about or listening. It must be practiced.
+    - Don't be afraid to try out code!
+    - ?something in the console searches the R documentation.
+    - XX_CodingClub Issues on github, join our Slack
+    - We will try to provide practice problems, code reviews, general support, and friendship.
+    
+
+- Install R
+- What is RStudio
+    - Console
+    - Help
+    - Upper Right Panel
+    - Editor
+- R notebook
+    - Literate programming concept
+    - Markdown blocks
+    - code chunks
+    
+
+- Programming is telling a computer what to do
+    - the R interpreter converts your English code to machine language, via a defined syntax
+    - Syntax is defined in documentation. If something doesn't make sense, the documentation should tell you.
+    - Unlike biology, the computer will do what you tell it to, but it will do exactly what it tell it to because it doesn't think.
+    - Nonetheless systems, are complicated. When stuck, Google, or try things and test your hypotheses, or ask your friends.
+  
+- Basics of Object Oriented Programming
+    - Assigning your first variable
+        - What is an object in object-oriented programming?
+        - We can *assign* names to objects. Objects can change. This is called assigning a variable.
+        - Assigned variables are now in memory.
+            - Check it out in the environment!
+    - Data types
+        - Objects are basically data
+        - Data comes in different forms.
+            - Integers, Double (Numeric), Character (generally known as strings), Boolean, Factors.
+                - Integers are whole numbers
+                - Double stand for double precision, but basically 5.2 and such
+                - Character/Strings are text
+                - Boolean is TRUE/FALSE
+                - Factors we can talk about later
+            - Why? We can do different things automatically if R "knows" about different data types.
+              e.g. it makes sense to add integers, but not strings necessarily.
+        - Data comes in different structures
+            - A vector is a 1-dimensional container of data of the same data type
+            - Matrix is 2D, array is multi-D
+            - Dataframes are 2D holding vectors along the columns.
+            - Lists are 1D containers containing different types of data. You can nest them.
+            - Why? Having data in a predictable structure means you can do sensible things to them.
+                - mean(c(5,6,7,8))
+        - We won't cover this here, but you can come up with arbitrary data structures/objects.
+          Like, if you made a "Cell" data type, you can have methods to say, release_insulin().
+          You could simulate objects and systems of the world.
+
+- Functions
+    - aka methods
+    - Formally, take *inputs* and *return* an *output*. Along with *side-effects*.
+    - The form is: example_function(argument1, argument2, keyword_argument1=example)
+        - argument1, argument2 are arguments. Also known as parameters.
+          They are one type of input to a function.
+          They are objects.
+          Order of the arguments matters.
+        - keyword_arguments are special arguments in that they are named.
+          They have a default value.
+          Order doesn't matter.
+    - We will show how to define your own functions later.
+    
+- Playing around with data frames
+    - We'll read in some transcriptomic data. 
+    - Basic slicing, indexing. Some vector math.
+
+```{r}
+
+```
+
