@@ -28,7 +28,9 @@ data_table_cnt <-read.csv(file = "./yeast-transcriptomics/data_table_normal.csv"
 # Do we want to normalize the experiments to a reference gene? How does that change the data? (lapply)
   - ACT1 (actin) ORF = YFL039C
   - TUB1 (alpha tubulin) ORF = YML085C
+  
 ## get the raw values for each genotype for actin and tubulin  
+## Use (dplyR)[http://adv-r.had.co.nz/Functional-programming.html] to normalize the count data to a reference gene
 ```{r}
 
 

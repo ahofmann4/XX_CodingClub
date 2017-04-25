@@ -30,6 +30,7 @@ Looks like we have gene names and a bunch column labels. If we take a look at co
 Ok, let's take compare two experiments. AFIQCI corresponds to a WT experiment, AFNCCR corresponds to a swr1 mutant. We can use the $ operator to slice out the columns by their name.
 ```{r}
 afi_afn_data <- raw_data_table[, c("X", "AFIQCI", "AFNCCR")] #subsetting old data
+
 data_table_2 <- data.frame(raw_data_table$X, raw_data_table$AFIQCI, raw_data_table$AFNCCR) #making a new table
 head(afi_afn_data)
 head(data_table_2) #new column names referencing what was added in
@@ -38,6 +39,7 @@ The colnames are hard to read, so let's rename the column names. (google or R he
 ```{r}
 colnames(data_table_2)
 colnames(data_table_2) <- c("ORF", "WT", "swr1")
+
 
 ```
 Ok let's take a look at some quick summary statistics. Looks like we might not have a very well distributed data set.
@@ -83,6 +85,7 @@ data_table_2$Ratios <- log2(data_table_2$WT/data_table_2$swr1)
 ```
 
 And for good measure, I'm going to create a new object where we sort this data_table. That way the genes at the top are the greatest increase, and the genes at the bottom are the greatest decrease. We can use the order function to perform this on data frames. order() returns a vector of indices in sorted order, which we can then use to call data_table rows in the appropriate order.
+
 ```{r}
 data_table_sorted <- data_table_2[order(data_table_2$Ratios),] #order gives a vector of indices to give us the order we call each row, and now our sorted data will have the data in a new order
 head(data_table_sorted)
