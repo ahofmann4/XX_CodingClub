@@ -73,7 +73,7 @@ data_act1$Ratios <- (data_table_2$WT/data_table_2$swr1)
 
 
 # Convert the loop above into a function so that we can just call the function to calculate the ratios of tubulin normalized data.
-BONUS: right the function so that it does the whole workflow above, aka also allows you to quickly choose a different refernce gene. 
+BONUS: write the function so that it does the whole workflow above, aka also allows you to quickly choose a different refernce gene. 
 
 ```{r}
 

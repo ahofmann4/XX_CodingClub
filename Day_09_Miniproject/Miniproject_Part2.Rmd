@@ -54,7 +54,9 @@ data_table_cnt <-read.csv(file = "./yeast-transcriptomics/data_table_normal.csv"
 ```
 
 
-# Convert the loop above into a function so that we can just call the function to calculate the ratios of tubulin.
+# Convert the loop above into a function so that we can just call the function to calculate the ratios of tubulin normalized data.
+BONUS: write the function so that it does the whole workflow above, aka also allows you to quickly choose a different refernce gene. 
+
 ```{r}
 
 ```
