@@ -20,4 +20,13 @@ Tue March 28, 2017 | 4:30 pm | LSI Room 1416 | If Statements
 Tue April 4, 2017 | 4:30 pm | LSI Room 1330 | While Loops
 Tue April 11, 2017 | 4:30 pm | LSI Room 1416 | Miniproject Part 1 (using skills we covered, aka a good review!) 
 Tue April 18, 2017 | 4:30 pm | LSI Room 1330 | Revisiting Miniproject Part 1 OR Minproject Part 2 (depending on turnout, still review!)
-Tue April 25, 2017 | 4:30 pm | LSI Room 1330 | TBA
+Tue April 25, 2017 | 4:30 pm | LSI Room 1330 | Miniproject part 1 (take 2)
+Tue May 2, 2017 | 4:30 pm | Cancelled | NA
+Tue May 9, 2017 | 4:30 pm | TBA | Miniproject part 2 (take 2)
+Tue May 16, 2017 | 4:30 pm | LSI Room 1416 | TBA
+Tue May 23, 2017 | 4:30 pm | LSI Room 1416 | TBA
+Tue May 30, 2017 | 4:30 pm | LSI Room 1416 | TBA
+Tue June 6, 2017 | 4:30 pm | LSI Room 1416 | TBA
+Tue June 13, 2017 | 4:30 pm |  TBA | TBA
+Tue June 20, 2017 | 4:30 pm | LSI Room 1416 | TBA
+Tue June 27, 2017 | 4:30 pm | LSI Room 1416 | TBA
